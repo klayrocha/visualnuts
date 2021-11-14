@@ -1,0 +1,99 @@
+<!-- HTML for static distribution bundle build -->
+<!-- Gerar json no editor online editor.swagger.io -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+	
+    <title>Digital Signature</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-visual.png" sizes="32x32" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+      
+      .swagger-ui .info {
+		    margin: 25px 0;
+		    padding: 10px;
+	  }
+
+      .swagger-ui .topbar {
+      	background-color: #212529;
+      }
+      
+      .download-url-button.button{
+     	background: #0085CA !important;
+      }
+      
+      .swagger-ui .topbar .download-url-wrapper input[type=text] {
+     	border: 2px solid #0085CA !important;
+       }
+      
+      h2.title {
+      	margin-bottom: 10px !important;      	
+      }
+      
+      div.topbar-wrapper a.link img{
+		    height: 55px !important;
+		    width: 300px !important;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script>
+    
+    function getContextPath() {
+       return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+    }
+    
+    window.onload = function() {
+      // Build a system
+      const ui = SwaggerUIBundle({
+    	url: window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/v2/api-docs/",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        validatorUrl : null,   
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout",
+        apisSorter: "alpha",
+        operationsSorter: "alpha"
+      })
+      window.ui = ui;
+
+      document.querySelector("div.topbar-wrapper a.link img").src="favicon-visual.png";
+      document.querySelector("div.topbar-wrapper a.link span").innerHTML="";
+      
+    }
+  </script>
+  </body>
+</html>

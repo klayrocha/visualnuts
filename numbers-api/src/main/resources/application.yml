@@ -1,0 +1,10 @@
+server:
+  port: 9696
+  
+
+# Can be changed to 500
+max-number: 100
+
+
+first-number: 3
+secound-number: 5
