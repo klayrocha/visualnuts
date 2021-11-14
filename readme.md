@@ -1,5 +1,5 @@
 # Instructions
-# Requirement : Docker Compose installed
+# Requirement : Docker Compose installed and Java 11
 
 1 - git clone or download zip                                          
 2 - cd visualnuts-main         
